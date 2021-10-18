@@ -1,0 +1,11 @@
+<%= p @array_letras %>
+<% start_time = Time.now %>
+
+<form action="/score" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <p>What is the longest word you can find?</p>
+  <input type="text" name="word">
+  <input type="hidden" name="tiempo_ini" value="<%= start_time %>">
+  <input type="hidden" name="grid" value="<%= @array_letras.join(",") %>">
+  <input type="submit" value="Play!">
+</form>
